@@ -15,4 +15,4 @@ app.get('/events', db.fetchAllEvents);
 
 app.post('/book', db.bookPlace);
 
-app.listen(port, () => console.log(`Sevents server running normally on port ${port}!`));
+app.listen(process.env.PORT, () => console.log(`Sevents server running normally on port ${port}!`));
