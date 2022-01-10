@@ -7,7 +7,6 @@ const {Client} = require('pg');
 //     password: 'root',
 //     port: 5432
 // });
-
 const client = new Client({
     user: 'xxyqkxysrwkdji',
     host: 'ec2-3-225-41-234.compute-1.amazonaws.com',
