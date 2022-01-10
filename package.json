@@ -1,0 +1,19 @@
+{
+  "name": "sevents",
+  "version": "1.0.0",
+  "description": "Sevents app's backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Bamba Fall",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
+  },
+  "engines": {
+    "node": "17.0.1"
+  }
+}
