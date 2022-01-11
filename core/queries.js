@@ -10,6 +10,18 @@ const fetchAllEvents = (req, res) => {
     })
 };
 
+const fetchUsersTickets = (req, res) => {
+    client.query(
+        'SELECT tk.code, tk.owner, ev.title, ev.startingdate, ev.endingdate FROM tickets tk, events ev WHERE (owner->>\'phone\')::integer = $1 and tk.event = ev.code', [
+            parseInt(req.params.phone)] , (err, result) => {
+        if(err) {
+            res.status(400).json({resultCode: 'ERR', message: err.message});
+        } else {
+            res.status(200).json(result.rows);
+        }
+    })
+};
+
 const bookPlace = (req, res) => {
 
     const bookingData = req.body;
@@ -28,4 +40,4 @@ const bookPlace = (req, res) => {
 
 };
 
-module.exports = {fetchAllEvents, bookPlace};
+module.exports = {fetchAllEvents, bookPlace, fetchUsersTickets};
