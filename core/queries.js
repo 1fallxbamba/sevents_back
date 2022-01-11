@@ -12,7 +12,7 @@ const fetchAllEvents = (req, res) => {
 
 const fetchUsersTickets = (req, res) => {
     client.query(
-        'SELECT tk.code, tk.owner, ev.title, ev.startingdate, ev.endingdate FROM tickets tk, events ev WHERE (owner->>\'phone\')::integer = $1 and tk.event = ev.code', [
+        'SELECT tk.code, tk.owner->\'quantity\' as numberOfPlaces, ev.title, ev.startingdate, ev.endingdate FROM tickets tk, events ev WHERE (owner->>\'phone\')::integer = $1 and tk.event = ev.code', [
             parseInt(req.params.phone)] , (err, result) => {
         if(err) {
             res.status(400).json({resultCode: 'ERR', message: err.message});
