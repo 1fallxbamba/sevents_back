@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('./core/queries')
 const bodyParser = require('body-parser')
 const app = express()
-const port = 80
+const port = process.env.PORT;
 
 app.use(bodyParser.json())
 app.use(
@@ -15,4 +15,6 @@ app.get('/events', db.fetchAllEvents);
 
 app.post('/book', db.bookPlace);
 
-app.listen(process.env.PORT, () => console.log(`Sevents server running normally on port ${port}!`));
+app.listen(port, () => console.log(`Sevents server running normally on port ${port}!`));
+
+// process.env.PORT
