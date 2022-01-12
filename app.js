@@ -14,7 +14,7 @@ app.get('/', (req, res) => {res.json({info: 'Sevents server running normally'})}
 
 app.get('/events', db.fetchAllEvents);
 
-app.get('/ticket/:phone', db.fetchUsersTickets);
+app.get('/tickets/:phone', db.fetchUsersTickets);
 
 app.post('/book', db.bookPlace);
 
